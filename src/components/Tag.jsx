@@ -38,6 +38,7 @@ const EachTag = styled.li`
 
 const TagWrite = styled.input`
   padding: 0 3px;
+  width: 300px;
 `
 
 function Tag(){

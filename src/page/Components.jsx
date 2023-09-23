@@ -6,6 +6,8 @@ import Toggle from "../components/Toggle";
 import Tab from "../components/Tab";
 import Tag from "../components/Tag";
 import Autocomplete from "../components/Autocomplete";
+import Select from "../components/Select";
+import Dropdown from "../components/Dropdown";
 
 import constants from "../constants/constants";
 
@@ -16,10 +18,20 @@ const ComponentBox = styled.section`
   padding: ${constants.layout.height}px ${constants.layout.width}px;
 `
 const OneComponent = styled.div`
+  min-height: 500px;
   display: flex;
   justify-content: center;
   text-align: center;
+  align-items: center;
   padding: ${constants.layout.height}px ${constants.layout.width}px;
+`
+
+const DropdownBox = styled.div`
+  display: flex;
+  &>:last-child>:last-child{
+    display: flex;
+    justify-content: center;
+  }
 `
 
 function Components(){
@@ -67,9 +79,39 @@ function Components(){
         </OneComponent>
       </ComponentBox>
       <ComponentBox>
-        <h2>모달(modal)</h2>
+        <h2>드롭다운 (Dropdown)</h2>
         <OneComponent>
-         
+          <DropdownBox>
+            <span>
+              <div>
+                HTML <code>{`<select>`}</code> 태그 사용한 드롭다운
+              </div>
+              <Select
+                name={"select 드랍다운 입니다."}
+                options={[
+                  "1번째 선택지",
+                  "2번째 선택지",
+                  "3번째 선택지"
+                ]}
+              />
+            </span>
+            <span>
+              <div>
+                HTML <code>{`<select>`}</code> 태그 없는 드롭다운
+              </div>
+              <div>
+                <Dropdown
+                  width="222px"
+                  name={"select 없는 드랍다운 입니다."}
+                  options={[
+                    "1번쨰 선택지",
+                    "2번째 선택지",
+                    "3번째 선택지"
+                  ]}
+                />
+              </div>
+            </span>
+          </DropdownBox>
         </OneComponent>
       </ComponentBox>
     </ComponentsContainer>
