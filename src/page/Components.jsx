@@ -8,6 +8,8 @@ import Tag from "../components/Tag";
 import Autocomplete from "../components/Autocomplete";
 import Select from "../components/Select";
 import Dropdown from "../components/Dropdown";
+import Accordion from "../components/Accordion";
+import Carousel from "../components/Carousel";
 
 import constants from "../constants/constants";
 
@@ -112,6 +114,28 @@ function Components(){
               </div>
             </span>
           </DropdownBox>
+        </OneComponent>
+      </ComponentBox>
+      <ComponentBox>
+        <h2>아코디언 (Accordion)</h2>
+        <OneComponent>
+          <Accordion
+            title={"아코디언"}
+            contents={[
+              {title: "1번째 제목", content: "1번째 내용"},
+              {title: "2번째 내용", content: "2번째 제목"},
+              {title: "3번째 제목", content: "3번째 내용"}
+            ]}
+          />
+        </OneComponent>
+      </ComponentBox>
+      <ComponentBox>
+        <h2>캐러셀 (Carousel)</h2>
+        <OneComponent>
+          <Carousel
+            contents={["https://img1.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202303/27/nongmin/20230327131457130mnbf.png","https://img.hankyung.com/photo/202108/99.26501439.1.jpg","https://i.ytimg.com/vi/SJjVpLXHchM/maxresdefault.jpg","https://dispatch.cdnser.be/cms-content/uploads/2021/05/14/112854cf-c3e8-4630-af6a-b005e1550367.jpg","https://on.com2us.com/wp-content/uploads/2023/01/shutterstock_1938676873-scaled.jpg"]}
+
+          />
         </OneComponent>
       </ComponentBox>
     </ComponentsContainer>
