@@ -1,31 +1,66 @@
 
-
-
 import { useState } from "react";
 import styled from "styled-components";
 
-const CarouselContainer = styled.section`
-  width: 1000px; height: 300px;
-`
-const CarouselBox = styled.div`
+const CarouselContainer = styled.article`
   display: flex;
-  width: 500px; height: 300px;
-  &>:nth-child(2){
-    margin: 0 5%;
+  height: ${window.innerHeight*0.5}px;
+  width: ${window.innerWidth*0.55}px;
+  &>button{
+    width: ${window.innerHeight*0.05}px;
+  }
+`
+
+const CarouselBox = styled.section`
+  display: flex;
+  height: ${window.innerHeight*0.5}px;
+  width: ${window.innerWidth*0.5}px;
+  overflow: hidden;
+  border: none;
+  & *{
+    border: none;
+  }
+`
+const CarouselList = styled.ul`
+  list-style: none;
+  display: flex;
+  height: 100%; width: ${props=>props.contentsLength*window.innerWidth*0.5}px;
+  transition: 1s;
+  transform: translateX(-${props=>100/props.contentsLength*props.page}%);
+  &>li{
+    height: ${window.innerHeight*0.5}px;
+    width: ${window.innerWidth*0.5}px;
   }
 `
 
 
 function Carousel({contents}){
   const [page,setPage] = useState(0)
+
+  function listFront(){
+    page-1>=0
+    ? setPage(page-1)
+    : setPage(contents.length-1)
+  }
+  function listBack(){
+    page+1<contents.length
+    ? setPage(page+1)
+    : setPage(0)
+  }
+
   return(
     <CarouselContainer>
+      <button onClick={listFront}>&lt;</button>
       <CarouselBox>
-          <span><img src={page-1<0? contents[contents.length-1] : contents[page-1]} height="300px" width="500px"></img></span>
-          <span><img src={contents[page]} height="300px" width="500px"></img></span>
-          <span><img src={page+1>=page.length? contents[0] : contents[page+1]} height="300px" width="500px"></img></span>
-          {console.log(page+1)}
+        <CarouselList contentsLength={contents.length} page={page}>
+          {contents.map(
+            (content,idx)=>{
+              return <li><img idx={idx} src={content} height="100%" width={window.innerWidth*0.5+"px"}></img></li>
+            }
+          )}
+        </CarouselList>
       </CarouselBox>
+      <button onClick={listBack}>&gt;</button>
     </CarouselContainer>
   )
 }

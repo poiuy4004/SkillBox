@@ -14,6 +14,7 @@ const TagContainer = styled.section`
 
 const TagBox = styled.ul`
   display: flex;
+  border: none;
   list-style: none;
 `
 const EachTag = styled.li`
@@ -23,15 +24,14 @@ const EachTag = styled.li`
   text-align: center;
   border: solid 1px blue;
   border-radius: 3px;
+  padding: 0 5px;
   &>:first-child{
-    margin: 0 1px;
+    border: none;
+    padding-right: 5px;
   }
   &>:last-child{
-    height: 20px; width: 20px;
-    margin: 0 1px;
-    color: white;
-    background-color: blue;
-    border-radius: 50%;
+    color: red;
+    border: none;
     cursor: pointer;
   }
 `
@@ -66,7 +66,7 @@ function Tag(){
         placeholder="태그를 입력해주세요."
         onKeyDown={e=>{
           if(e.key===("Enter"||" ")){
-            if(tags.length<10){
+            if(tags.length<10&&e.target.value.length<11){
             //   리액트에서의 이벤트(e)는 합성이벤트(SyntheticEvent)이고
             //   isComposing 함수를 구현하지 않았기에
 
@@ -77,7 +77,7 @@ function Tag(){
             //   추가로, 알파벳과 숫자는 isComposing===false 이기에,
             //   조건을 추가했다.
               let alphabet = /[a-zA-Z0-9]/
-              if(e.nativeEvent.isComposing||(alphabet.test(e.target.value.slice(-1)))){
+              if(!e.nativeEvent.isComposing||(alphabet.test(e.target.value.slice(-1)))){
                 e.target.value[0]==="#"
                 ? setTags([...tags,e.target.value.slice(1)])
                 : setTags([...tags,e.target.value])
@@ -86,6 +86,9 @@ function Tag(){
             }
             else if(tags.length>9){
               alert("태그는 10개까지 입력이 가능합니다.")
+            }
+            else if(e.target.value.length>10){
+              alert("태그의 글자는 10자 이하여야 합니다.")
             }
           }
           // 내용이 없을 때 "Backspace"는 태그 하나 삭제

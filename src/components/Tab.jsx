@@ -5,13 +5,12 @@ import styled from "styled-components";
 import constants from "../constants/constants";
 
 const TabContainer = styled.article`
-  height: ${props=>props.tabSize? props.tabSize.height : constants.layout.height*20}px;
-  width: ${props=>props.tabSize? props.tabSize.width : constants.layout.width*20}px;
-  padding: ${constants.layout.height}px ${constants.layout.width}px;
-  border-radius: 14px;
-  background-color: gray;
+  height: ${props=>props.tabSize? props.tabSize.height : constants.layout.height*20};
+  width: ${props=>props.tabSize? props.tabSize.width : constants.layout.width*20};
+  padding: ${constants.layout.height} ${constants.layout.width};
   font-size: larger;
   font-weight: bolder;
+  border: none;
 `
 
 const TitleBox = styled.ul`
@@ -19,7 +18,7 @@ const TitleBox = styled.ul`
   align-items: center;
   list-style: none;
   height: 25%;
-  border-bottom: none;
+  border: none;
 `
 const Title = styled.li`
   height: 100%; width: 100%;
@@ -30,6 +29,7 @@ const Title = styled.li`
   padding: ${constants.layout.height}px ${constants.layout.width}px;
   cursor: pointer;
   border-bottom: ${props=>props.tab===props.tabNumber? "none" : "solid 1px black"};
+  border-radius: 14px 14px 0 0;
 `
 
 const ContentBox = styled.div`
@@ -46,7 +46,7 @@ const Content = styled.section`
   width: 100%;
   background-color: ${props=>props.tab===props.tabNumber? "white" : "gray" };
   z-index: ${props=>props.tab===props.tabNumber? 999 : 0};
-  border-top: none;
+  border: none;
 `
 
 function Tab({tabSize, titleList, tabContentList}){

@@ -5,6 +5,10 @@ import styled from "styled-components";
 
 
 const AutocompleteContainer = styled.section`
+  border: none;
+  & *{
+    border: none;
+  }
 `
 
 const AutocompleteBox = styled.div`
@@ -22,10 +26,14 @@ const SearchBox = styled.input`
 
 const ListBox = styled.ul`
   list-style: none;
+  cursor: pointer;
   &>li{
     text-align: left;
     background-color: white;
     padding: 0 5%;
+  }
+  &>li:hover{
+    background-color: rgba(0, 0, 255, 0.1);
   }
   &>:last-child{
     border-radius: 0 0 8px 8px;
@@ -37,6 +45,17 @@ const searchValueList = ["가","가나","가나다","나","나다","나다라","
 function Autocomplete(){
   
   const [searchValue,setSearchValue] = useState("")
+  const [listOpen,setListOpen] = useState("")
+
+  function serchHandler(e){
+    setSearchValue(e.target.value)
+    setListOpen(e.target.value)
+  }
+
+  function listClick(ValueInList){
+    setSearchValue(ValueInList)
+    setListOpen("")
+  }
 
   return(
     <AutocompleteContainer>
@@ -45,12 +64,12 @@ function Autocomplete(){
           type="serach"
           placeholder="검색어를 입력하세요"
           value={searchValue}
-          onChange={e=>setSearchValue(e.target.value)}
+          onChange={serchHandler}
         />
         <ListBox>
           {searchValueList.map(ValueInList=>{
-            if(ValueInList.includes(searchValue)&&!(searchValue==="")){
-              return <li>{ValueInList}</li>
+            if(ValueInList.includes(listOpen)&&!(listOpen==="")){
+              return <li onClick={()=>listClick(ValueInList)}>{ValueInList}</li>
             }
           })}
         </ListBox>

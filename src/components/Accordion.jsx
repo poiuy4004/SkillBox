@@ -8,17 +8,15 @@ import styled from "styled-components";
 
 const AccordionContainer = styled.section`
   text-align: left;
-  background-color: rgba(255, 255, 255,0.3);
-  padding: ${constants.layout.height}px ${constants.layout.width}px;
-  height: 300px; width: 500px;
+  height: 0px; width: 50%;
 `
 
-const AccordionBox = styled.div`
+const AccordionBox = styled.ul`
+  background-color: rgba(255, 255, 255,0.3);
   list-style: none;
-  padding: ${constants.layout.height/2}px ${constants.layout.width/2}px;
   &>li{
     background-color: white;
-    margin: ${constants.layout.height}px ${constants.layout.width}px;
+    margin: ${constants.layout.height/4}px ${constants.layout.width/4}px;
   }
 `
 

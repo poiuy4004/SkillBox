@@ -10,6 +10,7 @@ import Select from "../components/Select";
 import Dropdown from "../components/Dropdown";
 import Accordion from "../components/Accordion";
 import Carousel from "../components/Carousel";
+import Pagination from "../components/Pagination.tsx"
 
 import constants from "../constants/constants";
 
@@ -20,7 +21,7 @@ const ComponentBox = styled.section`
   padding: ${constants.layout.height}px ${constants.layout.width}px;
 `
 const OneComponent = styled.div`
-  min-height: 500px;
+  min-height: ${window.innerHeight*0.7}px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -29,7 +30,9 @@ const OneComponent = styled.div`
 `
 
 const DropdownBox = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 50%;
   &>:last-child>:last-child{
     display: flex;
     justify-content: center;
@@ -62,9 +65,9 @@ function Components(){
         <h2>탭 (Tab)</h2>
         <OneComponent>
           <Tab
-            tabSize={{height: "300",width: "500"}}
+            tabSize={{height: "300px",width: "80%"}}
             titleList={["tab1","tab2","tab3"]}
-            tabContentList={["1번째 탭 내용입니다.","2번째 탭 내용입니다.","3번째 탭 내용입니다."]}
+            tabContentList={["1 번째 탭 (tab1) 내용입니다.","2 번째 탭 (tab2) 내용입니다.","3 번째 탭 (tab3) 내용입니다."]}
           />
         </OneComponent>
       </ComponentBox>
@@ -89,7 +92,7 @@ function Components(){
                 HTML <code>{`<select>`}</code> 태그 사용한 드롭다운
               </div>
               <Select
-                name={"select 드랍다운 입니다."}
+                name={"select 사용 드랍다운"}
                 options={[
                   "1번째 선택지",
                   "2번째 선택지",
@@ -103,8 +106,8 @@ function Components(){
               </div>
               <div>
                 <Dropdown
-                  width="222px"
-                  name={"select 없는 드랍다운 입니다."}
+                  width="100%"
+                  name={"select 없는 드랍다운"}
                   options={[
                     "1번쨰 선택지",
                     "2번째 선택지",
@@ -134,8 +137,13 @@ function Components(){
         <OneComponent>
           <Carousel
             contents={["https://img1.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202303/27/nongmin/20230327131457130mnbf.png","https://img.hankyung.com/photo/202108/99.26501439.1.jpg","https://i.ytimg.com/vi/SJjVpLXHchM/maxresdefault.jpg","https://dispatch.cdnser.be/cms-content/uploads/2021/05/14/112854cf-c3e8-4630-af6a-b005e1550367.jpg","https://on.com2us.com/wp-content/uploads/2023/01/shutterstock_1938676873-scaled.jpg"]}
-
           />
+        </OneComponent>
+      </ComponentBox>
+      <ComponentBox>
+        <h2>페이지네이션 (Pagination)</h2>
+        <OneComponent>
+          <Pagination />
         </OneComponent>
       </ComponentBox>
     </ComponentsContainer>
