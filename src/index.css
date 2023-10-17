@@ -1,10 +1,8 @@
 *{
   box-sizing: border-box;
   margin: 0; padding: 0;
-  border: dotted 1px black;
 }
 button{
-  border: none;
   background-color: transparent;
   background-color: cadetblue;
   cursor: pointer;

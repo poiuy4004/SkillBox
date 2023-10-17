@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4e80d0a5.css",
+    "main.js": "/static/js/main.895f5043.js",
+    "static/media/Skill_Box.png": "/static/media/Skill_Box.be59272699696bb89548.png",
+    "index.html": "/index.html",
+    "main.4e80d0a5.css.map": "/static/css/main.4e80d0a5.css.map",
+    "main.895f5043.js.map": "/static/js/main.895f5043.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e80d0a5.css",
+    "static/js/main.895f5043.js"
+  ]
+}

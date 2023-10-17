@@ -6,10 +6,11 @@ import constants from "../constants/constants"
 
 import Logo from "../assets/Skill_Box.png"
 
-
 const HeaderBox = styled.header`
   display: flex;
   justify-content: space-between;
+  margin-top: ${constants.layout.height/2}px;
+  padding: ${constants.layout.width/4}px;
   height: ${constants.layout.height*2}px;
 `
 
@@ -29,14 +30,6 @@ const HeaderLeft = styled.div`
 `
 
 const HeaderRight = styled(HeaderLeft)`
-
-`
-
-const LoginButton = styled.button`
-  cursor: pointer;
-`
-const SidebarButton = styled.button`
-  cursor: pointer;
 `
 
 function Header({open,setOpen}){
@@ -60,10 +53,10 @@ function Header({open,setOpen}){
         </Link>
       </HeaderLeft>
       <HeaderRight>
-        <LoginButton>
+        <button>
           Login
-        </LoginButton>
-        <SidebarButton onClick={()=>setOpen({...open,sidebar: !open.sidebar})}>
+        </button>
+        <button onClick={()=>setOpen({...open,sidebar: !open.sidebar})}>
           {open.sidebar?
             <svg width={constants.layout.height} height={constants.layout.height} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
               <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m22 6l8 10l-8 10m8-10H2"/>
@@ -74,7 +67,7 @@ function Header({open,setOpen}){
             </svg>
           }
           <div>Sidebar</div>
-        </SidebarButton>
+        </button>
       </HeaderRight>
     </HeaderBox>
   )

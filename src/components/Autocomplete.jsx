@@ -21,7 +21,9 @@ const AutocompleteBox = styled.div`
 const SearchBox = styled.input`
   padding: 0 5%;
   width: 100%;
-  border-radius: 8px 8px 0 0;
+  ${props=>props.listOpen
+  ? "border-radius: 8px 8px 0 0;"
+  : null}
 `
 
 const ListBox = styled.ul`
@@ -65,6 +67,7 @@ function Autocomplete(){
           placeholder="검색어를 입력하세요"
           value={searchValue}
           onChange={serchHandler}
+          listOpen={listOpen}
         />
         <ListBox>
           {searchValueList.map(ValueInList=>{

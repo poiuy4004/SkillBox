@@ -16,7 +16,7 @@ function App() {
     <>
       <Header open={open} setOpen={setOpen} />
       <Sidebar open={open} setOpen={setOpen} />
-      <Main />
+      <Main open={open} setOpen={setOpen} />
       <Footer />
     </>
   );

@@ -30,9 +30,10 @@ const OneComponent = styled.div`
 `
 
 const DropdownBox = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   width: 50%;
+  &>:last-child{
+    margin-top: 50px;
+  }
   &>:last-child>:last-child{
     display: flex;
     justify-content: center;
@@ -87,7 +88,7 @@ function Components(){
         <h2>드롭다운 (Dropdown)</h2>
         <OneComponent>
           <DropdownBox>
-            <span>
+            <div>
               <div>
                 HTML <code>{`<select>`}</code> 태그 사용한 드롭다운
               </div>
@@ -99,8 +100,8 @@ function Components(){
                   "3번째 선택지"
                 ]}
               />
-            </span>
-            <span>
+            </div>
+            <div>
               <div>
                 HTML <code>{`<select>`}</code> 태그 없는 드롭다운
               </div>
@@ -115,7 +116,7 @@ function Components(){
                   ]}
                 />
               </div>
-            </span>
+            </div>
           </DropdownBox>
         </OneComponent>
       </ComponentBox>
@@ -123,7 +124,7 @@ function Components(){
         <h2>아코디언 (Accordion)</h2>
         <OneComponent>
           <Accordion
-            title={"아코디언"}
+            title={"아코디언 제목"}
             contents={[
               {title: "1번째 제목", content: "1번째 내용"},
               {title: "2번째 내용", content: "2번째 제목"},
