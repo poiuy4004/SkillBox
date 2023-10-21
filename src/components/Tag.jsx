@@ -10,12 +10,16 @@ const TagContainer = styled.section`
   & *{
     background-color: white;
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const TagBox = styled.ul`
   display: flex;
   border: none;
   list-style: none;
+  min-height: 15px;
 `
 const EachTag = styled.li`
   display: flex;
@@ -63,9 +67,9 @@ function Tag(){
       </TagBox>
       <TagWrite
         type="text"
-        placeholder="태그를 입력해주세요."
+        placeholder="Enter와 Comma를 사용하여 태그를 입력해주세요."
         onKeyDown={e=>{
-          if(e.key===("Enter"||" ")){
+          if(e.key==="Enter"||e.key===","){
             if(tags.length<10&&e.target.value.length<11){
             //   리액트에서의 이벤트(e)는 합성이벤트(SyntheticEvent)이고
             //   isComposing 함수를 구현하지 않았기에
@@ -77,7 +81,7 @@ function Tag(){
             //   추가로, 알파벳과 숫자는 isComposing===false 이기에,
             //   조건을 추가했다.
               let alphabet = /[a-zA-Z0-9]/
-              if(!e.nativeEvent.isComposing||(alphabet.test(e.target.value.slice(-1)))){
+              if(!e.nativeEvent.isComposing||alphabet.test(e.target.value.slice(-1))){
                 e.target.value[0]==="#"
                 ? setTags([...tags,e.target.value.slice(1)])
                 : setTags([...tags,e.target.value])

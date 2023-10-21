@@ -146,15 +146,13 @@ function Components(){
         <OneComponent>
           <Pagination
             number={[
-              {title: "제목 1번째 페이지 제목", content: "내용 - 1번째 페이지 내용"},
-              {title: "제목 2번째 페이지 제목", content: "내용 - 2번째 페이지 내용"},
-              {title: "제목 3번째 페이지 제목", content: "내용 - 3번째 페이지 내용"},
-              {title: "제목 4번째 페이지 제목", content: "내용 - 4번째 페이지 내용"},
-              {title: "제목 5번째 페이지 제목", content: "내용 - 5번째 페이지 내용"},
-              {title: "제목 6번째 페이지 제목", content: "내용 - 6번째 페이지 내용"},
-              {title: "제목 7번째 페이지 제목", content: "내용 - 7번째 페이지 내용"},
-              {title: "제목 8번째 페이지 제목", content: "내용 - 8번째 페이지 내용"},
-              {title: "제목 9번째 페이지 제목", content: "내용 - 9번째 페이지 내용"},
+              {title: "1번째 시작 페이지 제목", content: "1번째 시작 페이지 내용"},
+              {title: "2번째 페이지 제목", content: "2번째 페이지 내용"},
+              {title: "3번째 페이지 제목", content: "3번째 페이지 내용"},
+              {title: "4번째 페이지 제목", content: "4번째 페이지 내용"},
+              {title: "5번째 페이지 제목", content: "5번째 페이지 내용"},
+              {title: "6번째 페이지 제목", content: "6번째 페이지 내용"},
+              {title: "7번째 마지막 페이지 제목", content: "7번째 마지막 페이지 내용"},
             ]}
           />
         </OneComponent>

@@ -10,3 +10,8 @@ button{
 #root{
   background-color: rgb(0, 128, 128);
 }
+@media (max-width: 768px) {
+  *{
+    font-size: xx-small;
+  }
+}
