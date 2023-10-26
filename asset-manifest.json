@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/SkillBox/static/css/main.3eff3ca6.css",
-    "main.js": "/SkillBox/static/js/main.ff2d495d.js",
+    "main.js": "/SkillBox/static/js/main.bc78eea2.js",
     "static/media/Skill_Box.png": "/SkillBox/static/media/Skill_Box.be59272699696bb89548.png",
     "index.html": "/SkillBox/index.html",
     "main.3eff3ca6.css.map": "/SkillBox/static/css/main.3eff3ca6.css.map",
-    "main.ff2d495d.js.map": "/SkillBox/static/js/main.ff2d495d.js.map"
+    "main.bc78eea2.js.map": "/SkillBox/static/js/main.bc78eea2.js.map"
   },
   "entrypoints": [
     "static/css/main.3eff3ca6.css",
-    "static/js/main.ff2d495d.js"
+    "static/js/main.bc78eea2.js"
   ]
 }
