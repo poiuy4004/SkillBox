@@ -68,37 +68,39 @@ function Tag(){
       <TagWrite
         type="text"
         placeholder="Enter와 Comma를 사용하여 태그를 입력해주세요."
-        onKeyDown={e=>{
+        onKeyUp={e=>{
+          let alphabet = /[a-zA-Z0-9]/
           if(e.key==="Enter"||e.key===","){
-            if(tags.length<10&&e.target.value.length<11){
-            //   리액트에서의 이벤트(e)는 합성이벤트(SyntheticEvent)이고
-            //   isComposing 함수를 구현하지 않았기에
-
-            //   한글은 React 이벤트(e) 속에서
-            //   진짜 JS 이벤트(nativeEvent)를 찾아서
-            //   isComposing을 확인해주어야 한다.
-
-            //   추가로, 알파벳과 숫자는 isComposing===false 이기에,
-            //   조건을 추가했다.
-              let alphabet = /[a-zA-Z0-9]/
-              if(!e.nativeEvent.isComposing||alphabet.test(e.target.value.slice(-1))){
-                e.target.value[0]==="#"
-                ? setTags([...tags,e.target.value.slice(1)])
-                : setTags([...tags,e.target.value])
-              }
-              e.target.value=""
-            }
-            else if(tags.length>9){
-              alert("태그는 10개까지 입력이 가능합니다.")
+            if(e.target.value.length<1){
+              alert("내용을 입력해주세요.")
             }
             else if(e.target.value.length>10){
               alert("태그의 글자는 10자 이하여야 합니다.")
             }
+            else if(tags.length>9){
+              alert("태그는 10개까지 입력이 가능합니다.")
+            }
+              //   리액트에서의 이벤트(e)는 합성이벤트(SyntheticEvent)이고
+              //   isComposing 함수를 구현하지 않았기에,
+              //   한글은 React 이벤트(e) 속에서
+              //   진짜 JS 이벤트(nativeEvent)를 찾아서
+              //   isComposing을 확인해주어야 한다.
+
+              //   추가로, 알파벳과 숫자는 isComposing===false 이기에,
+              //   조건을 추가했다.
+            else if(!e.nativeEvent.isComposing||alphabet.test(e.target.value[e.target.value.length-1])){
+              e.target.value[0]==="#"
+              ? setTags([...tags,e.target.value.slice(1)])
+              : setTags([...tags,e.target.value])
+              e.target.value[e.target.value.length-1]===","
+              ? setTags([...tags,e.target.value.slice(0,-1)])
+              : setTags([...tags,e.target.value])
+            }
+            e.target.value=""
           }
           // 내용이 없을 때 "Backspace"는 태그 하나 삭제
           if(e.key==="Backspace"&&e.target.value===""){
-            let deleteTag = tags.slice(0,-1)
-            setTags(deleteTag)
+            setTags(tags.slice(0,-1))
           }
         }}
       />
